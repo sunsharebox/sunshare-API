@@ -4,6 +4,11 @@ exports.config = {
   uptime: 5000 // each 5min
 }
 
+exports.keys = {
+  actuWeather: "PGdqq8p32HZKZ3wM5JghtkZ1TwWvyt5E",
+  openWeatherMap: "271acc6cd729718d8e20640948e251a2"
+}
+
 exports.SnSrSimul = {
   starttime : new Date().getTime(),
   soutiridx: 0,

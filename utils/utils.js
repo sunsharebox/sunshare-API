@@ -1,4 +1,6 @@
-exports.SnSrSimul = (SnSrSimul) => {
+const axios = require('axios');
+
+exports.simulationLinkyModule = (SnSrSimul) => {
 
   let timestamp = new Date().getTime();
   let timeNow = new Date(timestamp + (new Date().getTime() - SnSrSimul.starttime)) ;
@@ -101,6 +103,7 @@ exports.SnSrSimul = (SnSrSimul) => {
 }
 
 exports.previsionParabol = (sunSetTmp, sunRiseTmp) => {
+  let prevision = [];
   let tomorrowSunRise = new Date(sunRiseTmp*1000);
 
   let sunRise= Math.round(tomorrowSunRise.getTime()/60/30)*60*30; 
@@ -127,4 +130,10 @@ exports.previsionParabol = (sunSetTmp, sunRiseTmp) => {
   }
 
   return prevision;
+}
+
+exports.simulationSeasonCoef = (timestamp) => {
+  let SunCal = [0.294, 0.388, 0.758, 1.054, 1.3, 1.476, 1.576, 1.541, 1.352, 1.107, 0.768, 0.392, 0.294, 0.388];
+  let month = new Date(timestamp).getMonth()+1;
+  return SunCal[month]/1.576;
 }
