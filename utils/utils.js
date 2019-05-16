@@ -2,8 +2,8 @@ const axios = require('axios');
 
 exports.simulationLinkyModule = (SnSrSimul) => {
 
-  let timestamp = new Date().getTime();
-  let timeNow = new Date(timestamp + (new Date().getTime() - SnSrSimul.starttime)) ;
+  let timestamp = SnSrSimul.lastSample;
+  let timeNow = new Date();
 
   let conso = 0;
   let soutir = 0;
@@ -92,6 +92,7 @@ exports.simulationLinkyModule = (SnSrSimul) => {
     }
   }
 
+  SnSrSimul.lastSample = new Date().getTime();
   SnSrSimul.soutiridx = SnSrSimul.soutiridx + soutir;
   SnSrSimul.injectidx = SnSrSimul.injectidx + inject;
   SnSrSimul.prodidx = SnSrSimul.prodidx + prod;

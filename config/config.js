@@ -1,7 +1,7 @@
 exports.config = {
   port: 3005,
   history: 576, // each 5min 12*48h = 576
-  uptime: 5000 // each 5min
+  uptime: 300000 // each 5min
 }
 
 exports.keys = {
@@ -10,7 +10,8 @@ exports.keys = {
 }
 
 exports.SnSrSimul = {
-  starttime : new Date().getTime(),
+  firstSample : new Date().getTime(),
+  lastSample: new Date().getTime(),
   soutiridx: 0,
   injectidx: 0,
   prodidx: 0,
